@@ -79,7 +79,7 @@
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/<your-username>/2600_COMP2090_GRP108.git
+git clone https://github.com/justinfromhkg/2600_COMP2090_GRP108.git
 cd 2600_COMP2090_GRP108
 ```
 
