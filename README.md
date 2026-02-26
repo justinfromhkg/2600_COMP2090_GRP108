@@ -10,16 +10,6 @@
 
 ---
 
-## 📸 Screenshots
-
-| Login | Dashboard (Admin) | Search & Book (Passenger) |
-| :---: | :---: | :---: |
-| ![login](https://via.placeholder.com/280x180?text=Login) | ![dashboard](https://via.placeholder.com/280x180?text=Dashboard) | ![search](https://via.placeholder.com/280x180?text=Search+%26+Book) |
-
-> *Replace the placeholder images above with actual screenshots of your application.*
-
----
-
 ## ✨ Features
 
 ### For Passengers
