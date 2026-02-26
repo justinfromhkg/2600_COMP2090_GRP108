@@ -64,4 +64,5 @@ class System:
                 if flight.remove_passenger(passenger):
                     return "Booking cancelled"
                 return "Passenger not booked on this flight"
+
         return "Flight not found"
