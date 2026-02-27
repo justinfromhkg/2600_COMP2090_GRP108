@@ -158,6 +158,7 @@ class Api:
             "origin": f.get_origin(),
             "destination": f.get_destination(),
             "departure": f.get_departure_time(),
+            "aircraft": f.get_aircraft(),
             "seats": f.get_available_seats(),
         }
 

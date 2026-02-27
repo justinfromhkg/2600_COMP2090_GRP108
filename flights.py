@@ -1,5 +1,6 @@
 class Flight:
-    def __init__(self, flight_number, origin, destination, departure_time, capacity):
+    def __init__(self, flight_number, origin, 
+                 destination, departure_time, capacity, aircraft):
         # encapsulation
         self._flight_number = flight_number
         self._origin = origin
@@ -7,6 +8,7 @@ class Flight:
         self._departure_time = departure_time
         self._capacity = capacity
         self._booked_passengers = []
+        self._aircraft = aircraft
 
     # -------------------------
     # Getter methods
@@ -28,12 +30,33 @@ class Flight:
 
     def get_passenger_list(self):
         return self._booked_passengers
+    
+    def get_aircraft(self):
+        return self._aircraft
 
     # -------------------------
     # Setter
     # -------------------------
+    def set_flight_number(self, new_number):
+        self._flight_number = new_number
+
     def set_departure_time(self, new_time):
         self._departure_time = new_time
+
+    def set_origin(self, new_origin):
+        self._origin = new_origin
+
+    def set_destination(self, new_dest):
+        self._destination = new_dest
+
+    def update_capacity(self, new_capacity):
+        if new_capacity < len(self._booked_passengers):
+            return "Cannot reduce capacity below current bookings"
+        self._capacity = new_capacity
+        return "Capacity updated"
+
+    def set_aircraft(self, new_aircraft):
+        self._aircraft = new_aircraft
 
     # -------------------------
     # Booking logic
