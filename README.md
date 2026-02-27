@@ -183,4 +183,4 @@ Contributions, issues and feature requests are welcome! Feel free to open an iss
 
 ---
 
-<p align="center">Made with ❤️ and ☕ by Group 108</p>
+<p align="center">Made with LIAO Junming and XIE Jiayan, and CHEN Jiawen by Group 108</p>
