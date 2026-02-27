@@ -604,7 +604,7 @@ async function loadFlightsTable(kw){
 }
 
 function flightTable(flights, showBook){
-  let html='<table><thead><tr><th>Flight</th><th>Origin</th><th>Destination</th><th>Departure</th><th>Seats</th>';
+  let html='<table><thead><tr><th>Flight</th><th>Origin</th><th>Destination</th><th>Departure</th><th>Aircraft</th><th>Seats</th>';
   if(showBook) html+='<th>Action</th>';
   if(currentRole==='Admin') html+='<th>Passengers</th>';
   html+='</tr></thead><tbody>';
@@ -612,7 +612,7 @@ function flightTable(flights, showBook){
     const cls = f.seats===0?'full':f.seats<=10?'low':'ok';
     html+=`<tr>
       <td style="font-weight:600">${f.number}</td><td>${f.origin}</td><td>${f.destination}</td>
-      <td>${f.departure}</td><td><span class="seats-badge ${cls}">${f.seats===0?'Full':f.seats}</span></td>`;
+      <td>${f.departure}</td><td>${f.aircraft}</td><td><span class="seats-badge ${cls}">${f.seats===0?'Full':f.seats}</span></td>`;
     if(showBook) html+=`<td><button class="btn btn-success btn-sm" onclick="bookFlight('${f.number}')" ${f.seats===0?'disabled style="opacity:.5"':''}>Book</button></td>`;
     if(currentRole==='Admin') html+=`<td><button class="btn btn-outline btn-sm" onclick="viewPassengers('${f.number}')">View</button></td>`;
     html+='</tr>';
@@ -638,9 +638,9 @@ async function renderBookings(el){
     card.innerHTML='<div class="empty-state"><div class="icon">🎫</div><h4>No bookings yet</h4><p>Search flights and book your first trip!</p></div>';
     return;
   }
-  let html='<div class="table-wrap"><table><thead><tr><th>Flight</th><th>Origin</th><th>Destination</th><th>Departure</th><th>Action</th></tr></thead><tbody>';
+  let html='<div class="table-wrap"><table><thead><tr><th>Flight</th><th>Origin</th><th>Destination</th><th>Departure</th><th>Aircraft</th><th>Action</th></tr></thead><tbody>';
   bookings.forEach(f=>{
-    html+=`<tr><td style="font-weight:600">${f.number}</td><td>${f.origin}</td><td>${f.destination}</td><td>${f.departure}</td>
+    html+=`<tr><td style="font-weight:600">${f.number}</td><td>${f.origin}</td><td>${f.destination}</td><td>${f.departure}</td><td>${f.aircraft}</td>
     <td><button class="btn btn-danger btn-sm" onclick="cancelBooking('${f.number}')">Cancel</button></td></tr>`;
   });
   html+='</tbody></table></div>';
@@ -669,10 +669,10 @@ async function loadManageTable(){
     wrap.innerHTML='<div class="empty-state"><div class="icon">✈</div><h4>No flights</h4><p>Add a flight to get started</p></div>';
     return;
   }
-  let html='<table><thead><tr><th>Flight</th><th>Origin</th><th>Destination</th><th>Departure</th><th>Seats</th><th>Actions</th></tr></thead><tbody>';
+  let html='<table><thead><tr><th>Flight</th><th>Origin</th><th>Destination</th><th>Aircraft</th><th>Departure</th><th>Seats</th><th>Actions</th></tr></thead><tbody>';
   flights.forEach(f=>{
     const cls = f.seats===0?'full':f.seats<=10?'low':'ok';
-    html+=`<tr><td style="font-weight:600">${f.number}</td><td>${f.origin}</td><td>${f.destination}</td>
+    html+=`<tr><td style="font-weight:600">${f.number}</td><td>${f.origin}</td><td>${f.destination}</td><td>${f.aircraft}</td>
     <td>${f.departure}</td><td><span class="seats-badge ${cls}">${f.seats===0?'Full':f.seats}</span></td>
     <td style="display:flex;gap:6px">
       <button class="btn btn-outline btn-sm" onclick="showUpdateTimeModal('${f.number}','${f.departure}')">✏ Edit Time</button>
