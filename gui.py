@@ -9,6 +9,7 @@ from flight_system import System
 from flights import Flight
 from passenger import Passenger
 from admin import Admin
+import time
 
 
 # =========================================================
@@ -93,6 +94,8 @@ class Api:
             return json.dumps({"ok": False, "msg": "Not logged in"})
         msg = self.system.book_flight(self.current_user, flight_number)
         ok = msg == "Booking successful"
+        time.sleep(0.1)  # Simulate processing delay
+        # avoid double booking by checking if user already booked the flight
         return json.dumps({"ok": ok, "msg": msg})
 
     def cancel_booking(self, flight_number):

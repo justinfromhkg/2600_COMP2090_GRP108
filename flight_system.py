@@ -53,6 +53,8 @@ class System:
     def book_flight(self, passenger, flight_number):
         for flight in self._flights:
             if flight.get_flight_number() == flight_number:
+                if passenger in flight.get_passenger_list():
+                    return "You have booked the flight already"
                 if flight.add_passenger(passenger):
                     return "Booking successful"
                 return "No available seats"
