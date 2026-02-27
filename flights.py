@@ -38,6 +38,9 @@ class Flight:
     # -------------------------
     # Booking logic
     # -------------------------
+    def get_passenger_list(self):
+        return self._booked_passengers
+    
     def add_passenger(self, passenger):
         if self.get_available_seats() > 0:
             self._booked_passengers.append(passenger)
