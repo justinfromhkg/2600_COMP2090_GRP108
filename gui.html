@@ -694,6 +694,7 @@ function showAddFlightModal(){
     <div class="form-group"><label>Destination</label><input id="m-dst" placeholder="Arrival city"/></div>
     <div class="form-group"><label>Departure Time</label><input id="m-time" placeholder="e.g. 2026-04-01 14:00"/></div>
     <div class="form-group"><label>Capacity</label><input id="m-cap" type="number" placeholder="e.g. 150"/></div>
+    <div class="form-group"><label>Aircraft</label><input id="m-aircraft" placeholder="e.g. Boeing 737-800"/></div>
     <div class="modal-actions">
       <button class="btn btn-outline btn-sm" onclick="closeModal()">Cancel</button>
       <button class="btn btn-primary btn-sm" onclick="doAddFlight()">Add Flight</button>
@@ -701,9 +702,9 @@ function showAddFlightModal(){
   document.body.appendChild(overlay);
 }
 async function doAddFlight(){
-  const num=$('m-num').value.trim(), ori=$('m-ori').value.trim(), dst=$('m-dst').value.trim(), time=$('m-time').value.trim(), cap=$('m-cap').value.trim();
-  if(!num||!ori||!dst||!time||!cap){ toast('Please fill all fields','error'); return; }
-  const r = await api('add_flight', num, ori, dst, time, parseInt(cap));
+  const num=$('m-num').value.trim(), ori=$('m-ori').value.trim(), dst=$('m-dst').value.trim(), time=$('m-time').value.trim(), cap=$('m-cap').value.trim(), aircraft=$('m-aircraft').value.trim();
+  if(!num||!ori||!dst||!time||!cap||!aircraft){ toast('Please fill all fields','error'); return; }
+  const r = await api('add_flight', num, ori, dst, time, parseInt(cap), aircraft);
   toast(r.msg, r.ok?'success':'error');
   if(r.ok){ closeModal(); loadManageTable(); }
 }
