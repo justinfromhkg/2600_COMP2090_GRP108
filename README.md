@@ -35,14 +35,14 @@
 ## 🏛️ Architecture
 
 ```
-┌──────────────────────────────────────────────┐
+┌───────────────────────────────────────────────┐
 │                  gui.py                       │
 │  ┌────────────┐    ┌───────────────────────┐  │
-│  │  Api class  │◄──│  HTML / CSS / JS SPA  │  │
-│  │  (Bridge)   │──►│  (Embedded Frontend)  │  │
+│  │  Api class │◄───│  HTML / CSS / JS SPA  │  │
+│  │  (Bridge)  │───►│      (Frontend)       │  │
 │  └─────┬──────┘    └───────────────────────┘  │
-│        │           pywebview js_api bridge     │
-├────────┼─────────────────────────────────────┤
+│        │           pywebview js_api bridge    │
+├────────┼──────────────────────────────────────┤
 │        ▼                                      │
 │  ┌──────────────┐                             │
 │  │ flight_system│  Core booking logic         │
@@ -52,13 +52,14 @@
 │     ▼   ▼   ▼                                 │
 │  flights.py  person.py  passenger.py admin.py │
 │  (Flight)    (Person▲)  (Passenger)  (Admin)  │
-│              ABC base    ▲ extends    ▲ extends│
-└──────────────────────────────────────────────┘
+│              ABC base    ▲ extends   ▲ extends│
+└───────────────────────────────────────────────┘
 ```
 
 | File | Description |
 |------|-------------|
-| `gui.py` | Application entry-point, API bridge, and embedded HTML/CSS/JS frontend |
+| `gui.py` | Application entry-point and API bridge |
+| `gui.html` | HTML/CSS/JS frontend |
 | `flight_system.py` | Core `System` class — manages flights, users, and booking logic |
 | `flights.py` | `Flight` data model with capacity and passenger management |
 | `person.py` | Abstract `Person` base class with bcrypt password hashing |
@@ -144,7 +145,8 @@ This project showcases key Object-Oriented Programming principles:
 
 ```
 2600_COMP2090_GRP108/
-├── gui.py              # Main entry-point & embedded SPA frontend
+├── gui.py              # Main entry-point
+├── gui.html            # SPA frontend
 ├── flight_system.py    # Core system logic (flights, users, bookings)
 ├── flights.py          # Flight model
 ├── person.py           # Abstract Person base class
@@ -165,22 +167,10 @@ This project is licensed under the [Anti-996 License](LICENSE).
 
 ---
 
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome! Feel free to open an issue or submit a pull request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
----
-
 ## 👥 Team
 
 **COMP2090 — Group 108**
 
 ---
 
-<p align="center">Made with LIAO Junming, XIE Jiayan and CHEN Jiawen by Group 108</p>
+<p align="center">Made by Group 108( LIAO Junming, XIE Jiayan and CHEN Jiawen )</p>
