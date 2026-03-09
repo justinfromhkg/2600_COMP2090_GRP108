@@ -1,6 +1,6 @@
 # Task 2 — Self-Study: Heap & Heap Sort
 
-A self-study report and implementation of the **Heap** data structure and **Heap Sort** algorithm in Python, as part of the COMP2090SEF / COMP8090SEF / COMP S209W Course Project (2026 Spring).
+A self-study report and implementation of the **Heap** data structure and **Heap Sort** algorithm in Python, as part of the COMP2090SEF Course Project (2026 Spring).
 
 ---
 
